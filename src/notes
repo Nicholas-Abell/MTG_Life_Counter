@@ -1,0 +1,20 @@
+<Navigation x={resetLife} />
+      <LifeCounter life={player2Life}
+        playerNumber={2}
+        loseLife={() => setPlayer2Life((life) => life - 5)}
+        gainLife={() => setPlayer2Life((life) => life + 5)}
+        rotate={'rotate'} />
+      <LifeCounter life={lifeP}
+        playerNumber={1}
+        loseLife={loseLife}
+        gainLife={addLife}
+        rotate={'rotate'} />
+      <LifeCounter life={player3Life}
+        playerNumber={3}
+        loseLife={() => setPlayer3Life((life) => life - 5)}
+        gainLife={() => setPlayer3Life((life) => life + 5)} />
+      <LifeCounter life={player4Life}
+        playerNumber={4}
+        loseLife={() => setPlayer4Life((life) => life - 5)}
+        gainLife={() => setPlayer4Life((life) => life + 5)} />
+*/

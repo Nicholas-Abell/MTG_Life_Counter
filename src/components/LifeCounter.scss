@@ -1,0 +1,61 @@
+.lifeCounter {
+  border: solid red;
+  max-width: 100%;
+  min-width: 40%;
+  height: 44vh;
+  border-radius: 1rem;
+  flex: 1;
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+
+  &__button{
+    font-size: 2rem;
+    font-weight: 700;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    background: none;
+    z-index: 0;
+    border: none;
+    color: white;
+    border-radius: 1rem;
+    &:hover{
+      background: gray;
+    }
+  }
+
+  &__total{
+    margin: 2rem;
+    z-index: 1;
+    font-size: 2rem;
+
+    &:hover{
+      color: red;
+      cursor: pointer;
+    }
+  }
+
+  &__userName{
+    z-index: 1;
+    max-width: 50%;
+    text-align: center;
+  }
+}
+
+.-left{
+  left: 0;
+}
+
+.-right{
+  right: 0;
+}
+
+.rotate{
+  transform: rotate(180deg);
+}
