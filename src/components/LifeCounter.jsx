@@ -1,7 +1,7 @@
 import './LifeCounter.scss';
 import React, { useState } from 'react';
 
-const LifeCounter = ({ life, playerNumber, gainLife, loseLife, id }) => {
+const LifeCounter = ({ life, playerNumber, gainLife, loseLife, id, rotate }) => {
 
   const [playerName, setPlayerName] = useState('');
 
@@ -11,7 +11,14 @@ const LifeCounter = ({ life, playerNumber, gainLife, loseLife, id }) => {
 
   return (
     <div className={`lifeCounter`}
-      style={((life > 0) ? { backgroundColor: 'black' } : { backgroundColor: 'grey' })}
+      style={{
+        backgroundColor: life > 0
+          ? 'black'
+          : 'grey',
+        transform: rotate
+          ? 'rotate(180deg)'
+          : ''
+      }}
       life={life}>
 
       <input
@@ -22,14 +29,22 @@ const LifeCounter = ({ life, playerNumber, gainLife, loseLife, id }) => {
       </input>
 
       <button className={'lifeCounter__button -left'}
-        style={(life > 0) ? { display: '' } : { display: 'none' }}
+        style={{
+          display: life > 0
+            ? ''
+            : 'none'
+        }}
         onClick={loseLife} id={id}
       >-</button>
 
       <p className="lifeCounter__total">{life}</p>
 
       <button className={'lifeCounter__button -right'}
-        style={(life > 0) ? { display: '' } : { display: 'none' }}
+        style={{
+          display: life > 0
+            ? ''
+            : 'none'
+        }}
         onClick={gainLife} id={id}>+</button>
     </div >
   )

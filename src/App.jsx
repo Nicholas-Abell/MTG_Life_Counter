@@ -1,7 +1,7 @@
 import './App.scss';
 import './components/LifeCounter.jsx';
 import LifeCounter from './components/LifeCounter.jsx';
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Navigation from './components/Navigation.jsx';
 
@@ -11,22 +11,26 @@ export default function App() {
     {
       player: 1,
       id: 1,
-      life: 40
+      life: 40,
+      rotate: true
     },
     {
       player: 2,
       id: 2,
-      life: 40
+      life: 40,
+      rotate: true
     },
     {
       player: 3,
       id: 3,
-      life: 40
+      life: 40,
+      rotate: false
     },
     {
       player: 4,
       id: 4,
-      life: 40
+      life: 40,
+      rotate: false
     }
   ])
 
@@ -41,8 +45,8 @@ export default function App() {
 
   const loseLife = (e) => {
     setPlayers(players.map((player) => {
-      if(parseInt(e.target.id) === parseInt(player.id)){
-        return {...player, life: player.life - 5}
+      if (parseInt(e.target.id) === parseInt(player.id)) {
+        return { ...player, life: player.life - 5 }
       }
       return player;
     }))
@@ -50,13 +54,13 @@ export default function App() {
 
   const gameReset = () => {
     setPlayers(players.map((player) => {
-      return {...player, life: 40};
+      return { ...player, life: 40 };
     }))
   }
-  
+
   return (
     <main>
-      <Navigation gameReset={gameReset}/>
+      <Navigation gameReset={gameReset} />
       {
         players.map((player, key) => {
           return (
@@ -66,7 +70,8 @@ export default function App() {
               gainLife={gainLife}
               loseLife={loseLife}
               playerNumber={player.id}
-              life={player.life} />
+              life={player.life}
+              rotate={player.rotate} />
           )
         })
       }
